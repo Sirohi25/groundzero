@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text → Anime Video Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>AI VIDEO LAB</h1>
+<p>
+Turn raw text into Anime / Cartoon / Cinematic videos.<br>
+No editing. No skills. Just intent.
+</p>
+
+<textarea id="videoText" placeholder="Type your story or message"></textarea>
+
+<label>Select Video Style</label>
+<select id="style">
+  <option value="anime">Anime</option>
+  <option value="cartoon">Cartoon</option>
+  <option value="cinematic">Cinematic</option>
+</select>
+
+<label for="musicFile">Upload Music (optional)</label>
+<input type="file" id="musicFile" accept="audio/*">
+
+<div style="background:#111;padding:15px;border-left:4px solid #ff3c00;margin-bottom:15px;">
+  <b>How it works:</b><br>
+  1️⃣ Write your idea<br>
+  2️⃣ Choose visual style<br>
+  3️⃣ AI converts text → video<br>
+  <small>(No AI keys needed now. Engine activates soon.)</small>
+</div>
+
+<hr>
+<p style="font-size:12px;color:#888;">
+AI VIDEO LAB is in controlled release.<br>
+Early users will unlock advanced visuals & longer videos.
+</p>
+
+<button id="generateBtn">Generate Video</button>
+
+<h2>Output:</h2>
+<video id="outputVideo" controls width="400"></video>
+
+<script src="api_config.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

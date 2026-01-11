@@ -1,0 +1,39 @@
+body{
+  background:#0d0d0d;
+  color:#fff;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+h1{
+  color:#ff3c00;
+}
+textarea{
+  width:100%;
+  height:100px;
+  margin:10px 0;
+  padding:10px;
+  font-size:16px;
+}
+input, button{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  font-size:16px;
+}
+button{
+  background:#ff3c00;
+  color:#000;
+  border:none;
+  cursor:pointer;
+}
+video{
+  margin-top:20px;
+  border:2px solid #ff3c00;
+}
+select{
+  width:100%;
+  padding:12px;
+  background:#111;
+  color:#fff;
+  border:1px solid #ff3c00;
+}

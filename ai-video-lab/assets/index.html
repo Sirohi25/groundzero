@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Text → Anime Video Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Text → Anime Video + Music</h1>
+<p>Type your text, choose music, and generate animated video (anime/cartoon style)</p>
+
+<textarea id="videoText" placeholder="Type your story or message"></textarea>
+
+<label for="musicFile">Upload Music (optional)</label>
+<input type="file" id="musicFile" accept="audio/*">
+
+<button id="generateBtn">Generate Video</button>
+
+<h2>Output:</h2>
+<video id="outputVideo" controls width="400" poster=""></video>
+<br>
+<button id="downloadBtn" style="display:none;">Download Video</button>
+
+<script src="api_config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
