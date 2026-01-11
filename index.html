@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>GROUNDZERO | Online Skill to Real Power</title>
-
   <style>
     body {
       background:#0d0d0d;
@@ -35,6 +34,11 @@
       font-size:12px;
       color:#888;
       text-align:center;
+    }
+    .ai-btn {
+      background:#00ffcc;
+      color:#000;
+      margin-top:20px;
     }
   </style>
 </head>
@@ -69,66 +73,19 @@
 <script>
 /* ====== SKILL DATABASE ====== */
 const skills = {
-  coding: {
-    base: 60,
-    demand: 20,
-    difficulty: 15,
-    saturation: 10,
-    illusion: "Tutorial dekhna coding nahi hoti.",
-    path: "Real problems solve karo, tab value banti hai."
-  },
-  ai: {
-    base: 40,
-    demand: 10,
-    difficulty: 5,
-    saturation: 25,
-    illusion: "AI use karna skill nahi, dependency hai.",
-    path: "AI ko real-world kaam me lagao."
-  },
-  content: {
-    base: 50,
-    demand: 15,
-    difficulty: 10,
-    saturation: 20,
-    illusion: "Viral hona power nahi hota.",
-    path: "Ek niche me authority build karo."
-  },
-  followers: {
-    base: 30,
-    demand: 5,
-    difficulty: 5,
-    saturation: 30,
-    illusion: "Followers bina trust sirf number hote hain.",
-    path: "Offline leverage create karo."
-  },
-  degree: {
-    base: 45,
-    demand: 10,
-    difficulty: 10,
-    saturation: 15,
-    illusion: "Degree entry pass hai, crown nahi.",
-    path: "Skill ke bina degree bekaar hai."
-  },
-  trading: {
-    base: 55,
-    demand: 15,
-    difficulty: 20,
-    saturation: 20,
-    illusion: "Easy money sabse bada jhoot hai.",
-    path: "Risk management seekho, ego nahi."
-  }
+  coding: {base:60,demand:20,difficulty:15,saturation:10,illusion:"Tutorial dekhna coding nahi hoti.",path:"Real problems solve karo, tab value banti hai."},
+  ai: {base:40,demand:10,difficulty:5,saturation:25,illusion:"AI use karna skill nahi, dependency hai.",path:"AI ko real-world kaam me lagao."},
+  content: {base:50,demand:15,difficulty:10,saturation:20,illusion:"Viral hona power nahi hota.",path:"Ek niche me authority build karo."},
+  followers: {base:30,demand:5,difficulty:5,saturation:30,illusion:"Followers bina trust sirf number hote hain.",path:"Offline leverage create karo."},
+  degree: {base:45,demand:10,difficulty:10,saturation:15,illusion:"Degree entry pass hai, crown nahi.",path:"Skill ke bina degree bekaar hai."},
+  trading: {base:55,demand:15,difficulty:20,saturation:20,illusion:"Easy money sabse bada jhoot hai.",path:"Risk management seekho, ego nahi."}
 };
 
 /* ====== ANALYSIS FUNCTION ====== */
 function analyze() {
   let skill = document.getElementById("skill").value;
   let goal = document.getElementById("goal").value;
-
-  if(skill === "" || goal === "") {
-    alert("Pehle sab select karo");
-    return;
-  }
-
+  if(skill === "" || goal === "") { alert("Pehle sab select karo"); return; }
   let s = skills[skill];
   let score = s.base + s.demand + s.difficulty - s.saturation;
   score = Math.max(0, Math.min(100, score));
@@ -139,34 +96,26 @@ function analyze() {
       <p><b>Harsh Truth:</b> ${s.illusion}</p>
       <p><b>Power Path:</b> ${s.path}</p>
       <p><b>Goal Alignment:</b> ${goal.toUpperCase()} possible hai — shortcut nahi.</p>
-
       <button onclick="shareResult(${score})">Share Your Reality</button>
       <br><br>
-
-      <a href="upi://pay?pa=YOURUPI@upi">
-        <button>Unlock Full Power Report ₹299</button>
-      </a>
+      <a href="upi://pay?pa=YOURUPI@upi"><button>Unlock Full Power Report ₹299</button></a>
     </div>
   `;
 }
 
 /* ====== SHARE FUNCTION ====== */
 function shareResult(score) {
-  const text = `My Reality Score is ${score}/100.
-Online skill ≠ Real power.
-Check yours on GROUNDZERO.`;
-
+  const text = `My Reality Score is ${score}/100.\nOnline skill ≠ Real power.\nCheck yours on GROUNDZERO.`;
   if (navigator.share) {
-    navigator.share({
-      title: "GROUNDZERO Reality Check",
-      text: text,
-      url: window.location.href
-    });
-  } else {
-    alert("Sharing supported nahi hai");
-  }
+    navigator.share({title:"GROUNDZERO Reality Check", text:text, url:window.location.href});
+  } else { alert("Sharing supported nahi hai"); }
 }
 </script>
+
+<!-- ====== AI VOICE LAB BUTTON ====== -->
+<a href="ai-voice-lab/index.html">
+  <button class="ai-btn">🎙️ AI Voice Lab</button>
+</a>
 
 <footer>
   <hr>
