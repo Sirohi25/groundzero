@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GROUNDZERO | Online Skill to Real Power</title>
+
+  <style>
+    body {
+      background:#0d0d0d;
+      color:#ffffff;
+      font-family: Arial, sans-serif;
+      padding:20px;
+    }
+    h1 { color:#ff3c00; }
+    select, button {
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      font-size:16px;
+    }
+    button {
+      background:#ff3c00;
+      color:#000;
+      border:none;
+      cursor:pointer;
+    }
+    .box {
+      background:#1a1a1a;
+      padding:20px;
+      margin-top:20px;
+      border-left:5px solid #ff3c00;
+    }
+    footer {
+      margin-top:40px;
+      font-size:12px;
+      color:#888;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>GROUNDZERO</h1>
+<p>Turn your online skill into real-world power.</p>
+<p><i>⚠️ Warning: Ye site motivation nahi deti. Ye sach batati hai.</i></p>
+
+<select id="skill">
+  <option value="">Select Your Skill</option>
+  <option value="coding">Coding / Programming</option>
+  <option value="ai">Using AI Tools</option>
+  <option value="content">Content Creation</option>
+  <option value="followers">Social Media Followers</option>
+  <option value="degree">Degree / Certificate</option>
+  <option value="trading">Trading</option>
+</select>
+
+<select id="goal">
+  <option value="">Your Goal</option>
+  <option value="money">Money</option>
+  <option value="power">Power / Authority</option>
+  <option value="freedom">Freedom</option>
+</select>
+
+<button onclick="analyze()">CHECK REALITY</button>
+
+<div id="result"></div>
+
+<script>
+/* ====== SKILL DATABASE ====== */
+const skills = {
+  coding: {
+    base: 60,
+    demand: 20,
+    difficulty: 15,
+    saturation: 10,
+    illusion: "Tutorial dekhna coding nahi hoti.",
+    path: "Real problems solve karo, tab value banti hai."
+  },
+  ai: {
+    base: 40,
+    demand: 10,
+    difficulty: 5,
+    saturation: 25,
+    illusion: "AI use karna skill nahi, dependency hai.",
+    path: "AI ko real-world kaam me lagao."
+  },
+  content: {
+    base: 50,
+    demand: 15,
+    difficulty: 10,
+    saturation: 20,
+    illusion: "Viral hona power nahi hota.",
+    path: "Ek niche me authority build karo."
+  },
+  followers: {
+    base: 30,
+    demand: 5,
+    difficulty: 5,
+    saturation: 30,
+    illusion: "Followers bina trust sirf number hote hain.",
+    path: "Offline leverage create karo."
+  },
+  degree: {
+    base: 45,
+    demand: 10,
+    difficulty: 10,
+    saturation: 15,
+    illusion: "Degree entry pass hai, crown nahi.",
+    path: "Skill ke bina degree bekaar hai."
+  },
+  trading: {
+    base: 55,
+    demand: 15,
+    difficulty: 20,
+    saturation: 20,
+    illusion: "Easy money sabse bada jhoot hai.",
+    path: "Risk management seekho, ego nahi."
+  }
+};
+
+/* ====== ANALYSIS FUNCTION ====== */
+function analyze() {
+  let skill = document.getElementById("skill").value;
+  let goal = document.getElementById("goal").value;
+
+  if(skill === "" || goal === "") {
+    alert("Pehle sab select karo");
+    return;
+  }
+
+  let s = skills[skill];
+  let score = s.base + s.demand + s.difficulty - s.saturation;
+  score = Math.max(0, Math.min(100, score));
+
+  document.getElementById("result").innerHTML = `
+    <div class="box">
+      <h2>Reality Score: ${score}/100</h2>
+      <p><b>Harsh Truth:</b> ${s.illusion}</p>
+      <p><b>Power Path:</b> ${s.path}</p>
+      <p><b>Goal Alignment:</b> ${goal.toUpperCase()} possible hai — shortcut nahi.</p>
+
+      <button onclick="shareResult(${score})">Share Your Reality</button>
+      <br><br>
+
+      <a href="upi://pay?pa=YOURUPI@upi">
+        <button>Unlock Full Power Report ₹299</button>
+      </a>
+    </div>
+  `;
+}
+
+/* ====== SHARE FUNCTION ====== */
+function shareResult(score) {
+  const text = `My Reality Score is ${score}/100.
+Online skill ≠ Real power.
+Check yours on GROUNDZERO.`;
+
+  if (navigator.share) {
+    navigator.share({
+      title: "GROUNDZERO Reality Check",
+      text: text,
+      url: window.location.href
+    });
+  } else {
+    alert("Sharing supported nahi hai");
+  }
+}
+</script>
+
+<footer>
+  <hr>
+  GROUNDZERO does not sell dreams.<br>
+  It exposes illusions.
+</footer>
+
+</body>
+</html>
